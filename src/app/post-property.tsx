@@ -87,7 +87,7 @@ export function PostProperty() {
       description,
       price: parseInt(price),
       propertyType,
-      label: listingType === "sale" ? "FOR_SALE" : "FOR_RENT",
+      label: listingType === "sale" ? "FOR__SALE" : "FOR_RENT",
       address: `${address}, ${city}, ${state}, ${zip}, ${country}`,
       // location:`${city}, ${state}, ${zip}, ${country}`,
       parking: parking,
