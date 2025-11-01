@@ -19,8 +19,8 @@ const Property_card = ({listing}:any)=>{
     return(
     <Card className="overflow-hidden">
         <div className="relative h-48 w-full">
-         {listing.images==undefined?<Image src={"/placeholder.svg"} alt={listing.title} fill className="object-cover" />
-    : <Image src={listing.images[0] || "/placeholder.svg"} alt={listing.title} fill className="object-cover" />
+         {listing.images.length === 0 ? <Image src={"/placeholder.svg"} alt={'image'} fill className="object-cover" />
+    : <Image src={listing.images[0].imageUrl ?? "/placeholder.svg"} alt={listing.images[0].imageUrl || "/placeholder.svg"} fill className="object-cover" />
          
 }
           <Badge className="absolute right-2 top-2 bg-primary px-2 py-1">&#x20A6; {listing.price.toLocaleString()}</Badge>
@@ -29,7 +29,7 @@ const Property_card = ({listing}:any)=>{
           <h3 className="line-clamp-1 text-xl font-semibold">{listing.title}</h3>
           <p className="flex items-center text-sm text-muted-foreground">
             <MapPin className="mr-1 h-3 w-3" />
-            {listing.location}
+            {listing.address}
           </p>
         </CardHeader>
         <CardContent className="p-4 pt-2">
@@ -37,15 +37,15 @@ const Property_card = ({listing}:any)=>{
             <div className="flex items-center gap-2">
               <span className="flex items-center text-sm">
                 <Bed className="mr-1 h-3 w-3" />
-                {listing.beds}
+                {listing.bedrooms}
               </span>
               <span className="flex items-center text-sm">
                 <Bath className="mr-1 h-3 w-3" />
-                {listing.baths}
+                {listing.bathrooms}
               </span>
               <span className="flex items-center text-sm">
                 <Building className="mr-1 h-3 w-3" />
-                {listing.sqft} sqft
+                {listing.areaSqFt} sqft
               </span>
             </div>
           </div>
