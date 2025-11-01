@@ -8,6 +8,8 @@ import NavBar from "../components/nav_bar";
 import Footer from "../components/footer";
 import Edit_listing_Provider from "../components/edit-listing-provider";
 
+export const dynamic = "force-dynamic";
+
 export default function RootLayout({
   children,
 }: Readonly<{
